@@ -62,19 +62,60 @@ function decreaseQty(button) {
   updateTotal(button);
 }
 
-// ═══════════════════════════════════════════
-// UPDATE TOTAL PRICE
-// ═══════════════════════════════════════════
+function getSelectedWeight(card) {
+  const selected = card.querySelector(".weight-box input[type='radio']:checked");
+  return selected ? Number(selected.value) : 1;
+}
+
+function getSelectedWeightLabel(card) {
+  const selected = card.querySelector(".weight-box input[type='radio']:checked");
+  return selected ? selected.nextElementSibling?.textContent.trim() || "1 KG" : "1 KG";
+}
+
+function shouldUseWeightOptions(card) {
+  const badge = card.querySelector(".kg-badge")?.innerText.trim().toLowerCase() || "";
+  if (badge.includes("kg")) return true;
+  const packMatch = badge.match(/(\d+)/);
+  if (!packMatch) return false;
+  const count = Number(packMatch[1]);
+  return (badge.includes("pack") || badge.includes("box")) && count >= 5;
+}
+
+function updateCardTotal(card) {
+  const basePrice = Number(card.dataset.basePrice || card.querySelector(".price").innerText.replace(/[^0-9]/g, "")) || 0;
+  const qty = Number(card.querySelector(".qty-box input").value) || 1;
+  const weight = getSelectedWeight(card);
+  const weightPrice = Math.round(basePrice * weight);
+  const total = weightPrice * qty;
+  const totalDiv = card.querySelector(".total-price");
+  const priceSpan = card.querySelector(".price");
+  const badge = card.querySelector(".kg-badge");
+  const label = currentLang === "ta" ? "மொத்தம்:" : "Total:";
+  const weightLabel = getSelectedWeightLabel(card);
+
+  if (priceSpan) {
+    priceSpan.innerText = `₹${weightPrice}`;
+  }
+  if (badge) {
+    badge.innerText = weightLabel;
+  }
+  if (totalDiv) {
+    totalDiv.innerHTML = `${label} ₹${total}`;
+  }
+}
 
 function updateTotal(button) {
-  const card  = button.closest(".cake-card");
-  const price = parseInt(card.querySelector(".price").innerText.replace("₹", ""));
-  const qty   = parseInt(card.querySelector(".qty-box input").value);
-  const total = price * qty;
+  const card = button.closest(".cake-card");
+  if (card) {
+    updateCardTotal(card);
+  }
+}
 
-  const totalDiv = card.querySelector(".total-price");
-  const label    = currentLang === "ta" ? "மொத்தம்:" : "Total:";
-  totalDiv.innerHTML = `${label} ₹${total}`;
+function handleWeightChange(event) {
+  const card = event.target.closest(".cake-card");
+  if (card) {
+    updateCardTotal(card);
+  }
 }
 
 // ═══════════════════════════════════════════
@@ -82,17 +123,62 @@ function updateTotal(button) {
 // ═══════════════════════════════════════════
 
 function openOrderModal(cakeName, kg, price, button) {
-  const card  = button.closest(".cake-card");
-  const qty   = parseInt(card.querySelector(".qty-box input").value);
-  const total = qty * price;
+  const card = button.closest(".cake-card");
+  const qty = Number(card.querySelector(".qty-box input").value) || 1;
+  const weightLabel = getSelectedWeightLabel(card);
+  const total = Number(card.querySelector(".total-price").innerText.replace(/[^0-9]/g, "")) || 0;
 
-  document.getElementById("cakeName").value  = cakeName;
-  document.getElementById("cakeKg").value    = kg;
-  document.getElementById("cakeQty").value   = qty;
+  document.getElementById("cakeName").value = cakeName;
+  document.getElementById("cakeKg").value = weightLabel;
+  document.getElementById("cakeQty").value = qty;
   document.getElementById("cakeTotal").value = total;
 
   new bootstrap.Modal(document.getElementById("orderModal")).show();
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".cake-card").forEach(card => {
+    const kgBadge = card.querySelector(".kg-badge")?.innerText.trim() || "";
+    if (!kgBadge.toLowerCase().includes("kg")) {
+      return;
+    }
+
+    const priceSpan = card.querySelector(".price");
+    const basePrice = Number(priceSpan?.innerText.replace(/[^0-9]/g, "")) || 0;
+    card.dataset.basePrice = basePrice;
+
+    const groupName = `weight-${Math.random().toString(36).substr(2, 6)}`;
+    const weightBox = document.createElement("div");
+    weightBox.className = "weight-box";
+    weightBox.innerHTML = `
+      <span data-en="Weight:" data-ta="எடை:">Weight:</span>
+      <label>
+        <input type="radio" name="${groupName}" value="0.5" data-label="500g">
+        <span data-en="500g" data-ta="500 கிராம்">500g</span>
+      </label>
+      <label>
+        <input type="radio" name="${groupName}" value="1" data-label="1kg" checked>
+        <span data-en="1kg" data-ta="1 கிலோ">1kg</span>
+      </label>
+      <label>
+        <input type="radio" name="${groupName}" value="2" data-label="2kg">
+        <span data-en="2kg" data-ta="2 கிலோ">2kg</span>
+      </label>
+      <label>
+        <input type="radio" name="${groupName}" value="3" data-label="3kg">
+        <span data-en="3kg" data-ta="3 கிலோ">3kg</span>
+      </label>
+      <label>
+        <input type="radio" name="${groupName}" value="4" data-label="4kg">
+        <span data-en="4kg" data-ta="4 கிலோ">4kg</span>
+      </label>
+    `;
+
+    priceSpan.parentElement.insertAdjacentElement("afterend", weightBox);
+    weightBox.addEventListener("change", handleWeightChange);
+    updateCardTotal(card);
+  });
+});
 
 // ═══════════════════════════════════════════
 // FORM SUBMIT → WHATSAPP
