@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tharu's_passion | Homemade Cakes</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+
+        <div class="container-fluid px-lg-5 px-3">
+
+            <!-- LEFT LOGO -->
+
+            <a class="navbar-brand me-auto" href="#">
+               Tharu's_passion
+            </a>
+
+            <!-- MOBILE TOGGLE -->
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- MENU -->
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home"> <i class="bi bi-house"></i> Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products"> <i class="bi bi-card-list"></i> Menu</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about"> <i class="bi bi-info-circle"></i> About</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="container">
+            <div class="hero-content text-center">
+
+                <h1>
+                    Homemade Customized Cakes & Brownies
+                </h1>
+
+                <p>
+                    Freshly baked with love for birthdays, celebrations and sweet memories ❤️
+                </p>
+
+                <a href="#products" class="btn hero-btn">
+                    Explore Menu
+                </a>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- MENU -->
+
+    <section class="py-5" id="products">
+
+        <div class="container-fluid">
+
+            <div class="section-title">
+                <h2>Our Menu</h2>
+                <p>Choose your favorite cakes & baked items</p>
+            </div>
+
+            <!-- SEARCH -->
+
+            <div class="row justify-content-center mb-5">
+
+                <div class="col-lg-6">
+
+                    <div class="search-box">
+
+                        <i class="bi bi-search"></i>
+
+                        <input type="text" id="searchInput" placeholder="Search cakes, brownies, cookies...">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PRODUCTS -->
+
+            <div class="row g-4" id="productContainer">
+                <!-- PRODUCT 1 -->
+
+                <div class="col-md-6 col-lg-4 product-item" data-name="Chocolate Truffle Cake">
+
+                    <div class="cake-card">
+
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&auto=format&fit=crop"
+                            alt="">
+
+                        <div class="cake-content">
+
+                            <h4>Chocolate Truffle Cake</h4>
+
+                            <p>Rich chocolate layered birthday cake</p>
+
+                            <div class="kg-badge">
+                                1 KG
+                            </div>
+
+                            <div class="price-area">
+
+                                <span class="price">₹899</span>
+
+                            </div>
+
+                            <!-- QTY -->
+
+                            <div class="qty-box">
+
+                                <button onclick="decreaseQty(this)">-</button>
+
+                                <input type="text" value="1" readonly>
+
+                                <button onclick="increaseQty(this)">+</button>
+
+                            </div>
+
+                            <!-- TOTAL -->
+
+                            <div class="total-price">
+                                Total: ₹899
+                            </div>
+
+                            <button class="order-btn"
+                                onclick="openOrderModal('Chocolate Truffle Cake','1 KG',899,this)">
+
+                                <i class="bi bi-whatsapp"></i>
+                                Order Now
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- PRODUCT 2 -->
+
+                <div class="col-md-6 col-lg-4 product-item" data-name="Fudge Brownies">
+
+                    <div class="cake-card">
+
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=1200&auto=format&fit=crop"
+                            alt="">
+
+                        <div class="cake-content">
+
+                            <h4>Fudge Brownies</h4>
+
+                            <p>Soft gooey brownies loaded with chocolate</p>
+
+                            <div class="kg-badge">
+                                Box of 6
+                            </div>
+
+                            <div class="price-area">
+
+                                <span class="price">₹399</span>
+
+                            </div>
+
+                            <div class="qty-box">
+
+                                <button onclick="decreaseQty(this)">-</button>
+
+                                <input type="text" value="1" readonly>
+
+                                <button onclick="increaseQty(this)">+</button>
+
+                            </div>
+
+                            <div class="total-price">
+                                Total: ₹399
+                            </div>
+
+                            <button class="order-btn" onclick="openOrderModal('Fudge Brownies','Box of 6',399,this)">
+
+                                <i class="bi bi-whatsapp"></i>
+                                Order Now
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- PRODUCT 3 -->
+
+                <div class="col-md-6 col-lg-4 product-item" data-name="Red Velvet Cake">
+
+                    <div class="cake-card">
+
+                        <img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?q=80&w=1200&auto=format&fit=crop"
+                            alt="">
+
+                        <div class="cake-content">
+
+                            <h4>Red Velvet Cake</h4>
+
+                            <p>Premium cream cheese frosted cake</p>
+
+                            <div class="kg-badge">
+                                1 KG
+                            </div>
+
+                            <div class="price-area">
+
+                                <span class="price">₹1099</span>
+
+                            </div>
+
+                            <div class="qty-box">
+
+                                <button onclick="decreaseQty(this)">-</button>
+
+                                <input type="text" value="1" readonly>
+
+                                <button onclick="increaseQty(this)">+</button>
+
+                            </div>
+
+                            <div class="total-price">
+                                Total: ₹1099
+                            </div>
+
+                            <button class="order-btn" onclick="openOrderModal('Red Velvet Cake','1 KG',1099,this)">
+
+                                <i class="bi bi-whatsapp"></i>
+                                Order Now
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- PRODUCT 4 -->
+
+                <div class="col-md-6 col-lg-4 product-item" data-name="vanilla sponge cake">
+
+                    <div class="cake-card">
+
+                        <img
+                            src="https://tse3.mm.bing.net/th/id/OIP.msIrEWrf1a7V-DGYlzRr4wHaKX?r=0&rs=1&pid=ImgDetMain&o=7&rm=3">
+
+                        <div class="cake-content">
+
+                            <h4>vanilla sponge cake</h4>
+
+                            <p>Rich chocolate birthday cake</p>
+
+                            <div class="kg-badge">1 KG</div>
+
+                            <div class="price-area">
+                                <span class="price">₹350</span>
+                            </div>
+
+                            <div class="qty-box">
+
+                                <button onclick="decreaseQty(this)">-</button>
+
+                                <input type="text" value="1" readonly>
+
+                                <button onclick="increaseQty(this)">+</button>
+
+                            </div>
+
+                            <div class="total-price">
+                                Total: ₹350
+                            </div>
+
+                            <button class="order-btn"
+                                onclick="openOrderModal('vanilla sponge cake','1 KG',350,this)">
+                                <i class="bi bi-whatsapp"></i>
+                                Order Now
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- PRODUCT 5 -->
+
+                <div class="col-md-6 col-lg-4 product-item" data-name="Black Forest Cake">
+
+                    <div class="cake-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1602351447937-745cb720612f?q=80&w=1200&auto=format&fit=crop">
+
+                        <div class="cake-content">
+
+                            <h4>Black Forest Cake</h4>
+
+                            <p>Classic cherry chocolate cake</p>
+
+                            <div class="kg-badge">1 KG</div>
+
+                            <div class="price-area">
+                                <span class="price">₹799</span>
+                            </div>
+
+                            <div class="qty-box">
+
+                                <button onclick="decreaseQty(this)">-</button>
+
+                                <input type="text" value="1" readonly>
+
+                                <button onclick="increaseQty(this)">+</button>
+
+                            </div>
+
+                            <div class="total-price">
+                                Total: ₹799
+                            </div>
+
+                            <button class="order-btn" onclick="openOrderModal('Black Forest Cake','1 KG',799,this)">
+                                <i class="bi bi-whatsapp"></i>
+                                Order Now
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+               
+
+                <!-- PRODUCT 6 -->
+
+                <div class="col-md-6 col-lg-4 product-item" data-name="Butterscotch Cake">
+
+                    <div class="cake-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=1200&auto=format&fit=crop">
+
+                        <div class="cake-content">
+
+                            <h4>Butterscotch Cake</h4>
+
+                            <p>Crunchy caramel delight cake</p>
+
+                            <div class="kg-badge">1 KG</div>
+
+                            <div class="price-area">
+                                <span class="price">₹850</span>
+                            </div>
+
+                            <div class="qty-box">
+
+                                <button onclick="decreaseQty(this)">-</button>
+
+                                <input type="text" value="1" readonly>
+
+                                <button onclick="increaseQty(this)">+</button>
+
+                            </div>
+
+                            <div class="total-price">
+                                Total: ₹850
+                            </div>
+
+                            <button class="order-btn" onclick="openOrderModal('Butterscotch Cake','1 KG',850,this)">
+                                <i class="bi bi-whatsapp"></i>
+                                Order Now
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                 <!-- PRODUCT 7 -->
+
+                <div class="col-md-6 col-lg-4 product-item" data-name="Cupcakes">
+
+                    <div class="cake-card">
+
+                        <img
+                            src="https://th.bing.com/th/id/OIP.baWLUNOJ0fIlEJY2F37PZAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3&fit=crop">
+
+                        <div class="cake-content">
+
+                            <h4>Cupcakes</h4>
+
+                            <p>Premium cream cheese frosting</p>
+
+                            <div class="kg-badge">1 KG</div>
+
+                            <div class="price-area">
+                                <span class="price">₹1099</span>
+                            </div>
+
+                            <div class="qty-box">
+
+                                <button onclick="decreaseQty(this)">-</button>
+
+                                <input type="text" value="1" readonly>
+
+                                <button onclick="increaseQty(this)">+</button>
+
+                            </div>
+
+                            <div class="total-price">
+                                Total: ₹1099
+                            </div>
+
+                            <button class="order-btn" onclick="openOrderModal('Red Velvet Cake','1 KG',1099,this)">
+                                <i class="bi bi-whatsapp"></i>
+                                Order Now
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- PRODUCT 8 -->
+
+                <div class="col-md-6 col-lg-4 product-item" data-name="Vanilla Cup Cakes">
+
+                    <div class="cake-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1200&auto=format&fit=crop">
+
+                        <div class="cake-content">
+
+                            <h4>Vanilla Cup Cakes</h4>
+
+                            <p>Soft creamy cupcakes</p>
+
+                            <div class="kg-badge">Pack of 6</div>
+
+                            <div class="price-area">
+                                <span class="price">₹299</span>
+                            </div>
+
+                            <div class="qty-box">
+
+                                <button onclick="decreaseQty(this)">-</button>
+
+                                <input type="text" value="1" readonly>
+
+                                <button onclick="increaseQty(this)">+</button>
+
+                            </div>
+
+                            <div class="total-price">
+                                Total: ₹299
+                            </div>
+
+                            <button class="order-btn"
+                                onclick="openOrderModal('Vanilla Cup Cakes','Pack of 6',299,this)">
+                                <i class="bi bi-whatsapp"></i>
+                                Order Now
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- PRODUCT 8 -->
+
+                <div class="col-md-6 col-lg-4 product-item" data-name="Strawberry Cake">
+
+                    <div class="cake-card">
+
+                        <img
+                            src="https://tse4.mm.bing.net/th/id/OIP.4iezouIm-Ia5wqUUcTWSHwHaJ4?r=0&rs=1&pid=ImgDetMain&o=7&rm=3&auto=format&fit=crop">
+
+                        <div class="cake-content">
+
+                            <h4>Strawberry Cake</h4>
+
+                            <p>Fresh strawberry flavor cake</p>
+
+                            <div class="kg-badge">1 KG</div>
+
+                            <div class="price-area">
+                                <span class="price">₹950</span>
+                            </div>
+
+                            <div class="qty-box">
+
+                                <button onclick="decreaseQty(this)">-</button>
+
+                                <input type="text" value="1" readonly>
+
+                                <button onclick="increaseQty(this)">+</button>
+
+                            </div>
+
+                            <div class="total-price">
+                                Total: ₹950
+                            </div>
+
+                            <button class="order-btn" onclick="openOrderModal('Strawberry Cake','1 KG',950,this)">
+                                <i class="bi bi-whatsapp"></i>
+                                Order Now
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section class="about-section py-5" id="about">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-6">
+
+                    <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1200&auto=format&fit=crop"
+                        class="img-fluid about-img">
+
+                </div>
+
+                <div class="col-lg-6 mt-4 mt-lg-0">
+
+                    <h2>Made with Love from Home Kitchen ❤️</h2>
+
+                    <p>
+                        We bake customized birthday cakes, brownies, cupcakes and cookies using
+                        premium ingredients and homemade care.
+                    </p>
+
+                    <div class="feature-list">
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Freshly baked daily
+                        </div>
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Customized birthday cakes
+                        </div>
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Premium ingredients
+                        </div>
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Hygienic home kitchen
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container text-center">
+
+            <h3>🍰 Tharu's_passion</h3>
+
+            <p>
+                Homemade Cakes • Brownies • Cookies • Sweet Memories
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- ORDER MODAL -->
+
+    <div class="modal fade" id="orderModal" tabindex="-1">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content custom-modal">
+
+                <div class="modal-header border-0">
+
+                    <h5 class="modal-title">
+                        Customer Details
+                    </h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <form id="orderForm">
+
+                        <input type="hidden" id="cakeName">
+                        <input type="hidden" id="cakeKg">
+                        <input type="hidden" id="cakeQty">
+                        <input type="hidden" id="cakeTotal">
+
+                        <div class="mb-3">
+
+                            <label>Name *</label>
+
+                            <input type="text" class="form-control" id="customerName" required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label>Mobile Number *</label>
+
+                            <input type="tel" class="form-control" id="mobileNo" required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label>Alternative Mobile Number *</label>
+
+                            <input type="tel" class="form-control" id="altMobileNo" required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label>Address *</label>
+
+                            <textarea class="form-control" rows="4" id="address" required></textarea>
+
+                        </div>
+
+                        <button type="submit" class="submit-btn w-100">
+
+                            <i class="bi bi-whatsapp"></i>
+                            Submit Order
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FLOATING BUTTON -->
+
+    <a href="https://wa.me/916382130293" class="floating-btn">
+
+        <i class="bi bi-whatsapp"></i>
+
+    </a>
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
