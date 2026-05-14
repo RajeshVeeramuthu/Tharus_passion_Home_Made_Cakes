@@ -251,6 +251,49 @@ body.lang-ta {
   font-weight: 600;
 }
 
+.weight-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.weight-box span:first-child {
+  font-weight: 600;
+  color: #555;
+  margin-right: 6px;
+}
+
+.weight-box label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  background: #fafafa;
+}
+
+.weight-box label:hover {
+  border-color: var(--primary);
+}
+
+.weight-box input[type="radio"] {
+  accent-color: var(--primary);
+}
+
+.weight-box input[type="radio"] + span {
+  font-weight: 500;
+}
+
+.weight-box input[type="radio"]:checked + span {
+  color: var(--primary);
+  font-weight: 700;
+}
+
 .total-price {
   font-weight: 700;
   margin-bottom: 16px;
