@@ -374,31 +374,217 @@ footer a:hover { color: white; }
 
 .submit-btn:hover { background: #17b554; }
 
-/* ── FLOATING WHATSAPP ── */
+/* ─────────────────────────────
+   FLOATING BUTTON
+─────────────────────────────*/
 .floating-btn {
   position: fixed;
   bottom: 25px;
   right: 25px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: var(--green);
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.6rem;
+  gap: 12px;
+
+  background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+  padding: 14px 20px;
+  border-radius: 60px;
+
+  border: none;
+  cursor: pointer;
+
   text-decoration: none;
-  box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+
+  box-shadow: 0 12px 30px rgba(255, 105, 180, 0.35);
+
   z-index: 999;
-  transition: transform 0.2s;
+  transition: all 0.3s ease;
 }
 
 .floating-btn:hover {
-  transform: scale(1.1);
-  color: white;
+  transform: translateY(-5px);
 }
 
+.floating-btn img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  padding: 4px;
+}
+
+
+/* ─────────────────────────────
+   POPUP OVERLAY
+─────────────────────────────*/
+.cake-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s ease;
+  z-index: 9999;
+}
+
+.cake-popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ─────────────────────────────
+   POPUP BOX
+─────────────────────────────*/
+.cake-popup-box {
+  width: 95%;
+  max-width: 500px;
+
+  background: white;
+  border-radius: 28px;
+
+  padding: 30px;
+  position: relative;
+
+  animation: popupShow 0.35s ease;
+}
+
+@keyframes popupShow {
+  from {
+    transform: translateY(40px) scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.cake-popup-box h2 {
+  margin-bottom: 8px;
+  color: #ff4f93;
+}
+
+.cake-popup-box p {
+  margin-bottom: 25px;
+  color: #666;
+}
+
+/* CLOSE BUTTON */
+.close-popup {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+
+  width: 38px;
+  height: 38px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #ffe4ee;
+  color: #ff4f93;
+
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* ─────────────────────────────
+   INPUTS
+─────────────────────────────*/
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+
+  border-radius: 14px;
+  border: 1px solid #ddd;
+
+  font-size: 0.95rem;
+  outline: none;
+
+  transition: 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #ff69b4;
+  box-shadow: 0 0 0 4px rgba(255,105,180,0.12);
+}
+
+.input-group small {
+  display: block;
+  margin-top: 8px;
+  color: #777;
+}
+
+/* ─────────────────────────────
+   SUBMIT BUTTON
+─────────────────────────────*/
+.submit-cake-btn {
+  width: 100%;
+  padding: 15px;
+
+  border: none;
+  border-radius: 16px;
+
+  background: linear-gradient(135deg, #ff69b4, #ff4f93);
+  color: white;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submit-cake-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(255,105,180,0.35);
+}
+
+/* ─────────────────────────────
+   MOBILE
+─────────────────────────────*/
+@media (max-width: 600px) {
+
+  .cake-popup-box {
+    padding: 24px 18px;
+  }
+
+  .floating-btn {
+    right: 15px;
+    bottom: 15px;
+
+    padding: 12px 16px;
+    font-size: 0.82rem;
+  }
+
+  .floating-btn img {
+    width: 42px;
+    height: 42px;
+  }
+
+}
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .hero-content h1 { font-size: 2.3rem; }
