@@ -220,3 +220,71 @@ ${address}`;
 
   window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
 });
+
+/* ─────────────────────────────
+   POPUP OPEN/CLOSE
+─────────────────────────────*/
+
+const openBtn = document.getElementById("openCakePopup");
+const popup = document.getElementById("cakePopup");
+const closeBtn = document.getElementById("closeCakePopup");
+
+openBtn.addEventListener("click", () => {
+  popup.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+  popup.classList.remove("active");
+});
+
+popup.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.classList.remove("active");
+  }
+});
+
+/* ─────────────────────────────
+   WHATSAPP SUBMIT
+─────────────────────────────*/
+
+document
+  .getElementById("customCakeForm")
+  .addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    const name =
+      document.getElementById("customerName1").value;
+
+    const mobile =
+      document.getElementById("customerMobile").value;
+
+    const theme =
+      document.getElementById("cakeTheme").value;
+
+    const description =
+      document.getElementById("cakeDescription").value;
+      const address     = document.getElementById("address1").value;
+
+    const message =
+`🎂 *CUSTOM CAKE ORDER*
+
+👤 Name: ${name}
+📞 Mobile: ${mobile}
+
+🎉 Theme:
+${theme}
+
+📝 Cake Description:
+${description}
+📍 Address:
+${address}
+
+📸 I will send reference images separately.`;
+
+    const whatsappURL =
+`https://wa.me/916382130293?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
+
+});
