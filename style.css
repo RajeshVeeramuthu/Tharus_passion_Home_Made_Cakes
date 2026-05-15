@@ -374,6 +374,141 @@ footer a:hover { color: white; }
 
 .submit-btn:hover { background: #17b554; }
 
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+.cake-footer {
+
+  color: white;
+
+  padding: 60px 20px 30px;
+
+  margin-top: 80px;
+}
+
+.cake-footer h3 {
+
+  font-size: 2rem;
+  font-weight: 700;
+
+  margin-bottom: 12px;
+}
+
+.cake-footer p {
+
+  margin-bottom: 10px;
+
+  opacity: 0.95;
+  line-height: 1.7;
+}
+
+/* CONTACT */
+.footer-contact a {
+
+  color: white;
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.footer-contact a:hover {
+
+  color: #ffe6f2;
+}
+
+/* SOCIAL ICONS */
+.footer-socials {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 28px;
+  margin-bottom: 25px;
+}
+
+.social-icon {
+
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.15);
+
+  color: white;
+
+  font-size: 1.4rem;
+
+  text-decoration: none;
+
+  backdrop-filter: blur(8px);
+
+  transition: all 0.35s ease;
+}
+
+/* HOVER EFFECT */
+.social-icon:hover {
+
+  transform: translateY(-6px) scale(1.08);
+
+  background: white;
+}
+
+/* INDIVIDUAL COLORS */
+.social-icon.instagram:hover {
+
+  color: #E1306C;
+}
+
+.social-icon.youtube:hover {
+
+  color: #FF0000;
+}
+
+.social-icon.whatsapp:hover {
+
+  color: #25D366;
+}
+
+/* COPYRIGHT */
+.footer-copy {
+
+  font-size: 0.85rem;
+
+  opacity: 0.75;
+
+  margin-top: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+  .cake-footer {
+
+    padding: 50px 15px 25px;
+  }
+
+  .cake-footer h3 {
+
+    font-size: 1.6rem;
+  }
+
+  .social-icon {
+
+    width: 48px;
+    height: 48px;
+
+    font-size: 1.2rem;
+  }
+}
+
 /* ─────────────────────────────
    FLOATING BUTTON
 ─────────────────────────────*/
@@ -381,40 +516,143 @@ footer a:hover { color: white; }
   position: fixed;
   bottom: 25px;
   right: 25px;
+
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+
+  width: 72px;
+  height: 72px;
+
+  padding: 10px;
+
+  overflow: hidden;
 
   background: linear-gradient(135deg, #ffb6c1, #ff69b4);
-  padding: 14px 20px;
-  border-radius: 60px;
+  border-radius: 70px;
 
   border: none;
   cursor: pointer;
 
-  text-decoration: none;
   color: #fff;
-  font-weight: 600;
-  font-size: 0.95rem;
+  text-decoration: none;
 
   box-shadow: 0 12px 30px rgba(255, 105, 180, 0.35);
 
-  z-index: 999;
-  transition: all 0.3s ease;
+  z-index: 9999;
+  transition: all 0.4s ease;
 }
 
+/* EXPAND */
+.floating-btn:hover,
+.floating-btn:focus,
+.floating-btn:active {
+
+  width: 350px;
+  min-height: 110px;
+
+  align-items: center;
+
+  padding: 16px 20px 16px 14px;
+
+  justify-content: flex-start;
+
+  border-radius: 30px;
+}
+
+/* LOGO IMAGE */
+.floating-btn img {
+  width: 52px;
+  height: 52px;
+
+  min-width: 52px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+  background: #fff;
+
+  padding: 5px;
+
+  display: block;
+  flex-shrink: 0;
+}
+
+/* BUTTON TEXT */
+.floating-btn span {
+
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateX(15px);
+
+  transition: all 0.35s ease;
+
+  white-space: normal;
+  word-break: break-word;
+
+  width: 0;
+}
+
+/* SHOW TEXT */
+.floating-btn:hover span,
+.floating-btn:focus span,
+.floating-btn:active span {
+
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateX(0);
+
+  width: 250px;
+}
+
+/* HOVER EFFECT */
 .floating-btn:hover {
   transform: translateY(-5px);
+  box-shadow: 0 16px 35px rgba(255, 105, 180, 0.45);
 }
 
-.floating-btn img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: white;
-  padding: 4px;
-}
+/* MOBILE */
+@media (max-width: 600px) {
 
+  .floating-btn {
+    width: 64px;
+    height: 64px;
+
+    bottom: 18px;
+    right: 18px;
+  }
+
+  .floating-btn:hover,
+  .floating-btn:focus,
+  .floating-btn:active {
+
+    width: 300px;
+    min-height: 100px;
+  }
+
+  .floating-btn img {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+  }
+
+  .floating-btn span {
+    font-size: 0.82rem;
+  }
+
+  .floating-btn:hover span,
+  .floating-btn:focus span,
+  .floating-btn:active span {
+    width: 200px;
+  }
+}
 
 /* ─────────────────────────────
    POPUP OVERLAY
@@ -445,7 +683,7 @@ footer a:hover { color: white; }
 ─────────────────────────────*/
 .cake-popup-box {
   width: 95%;
-  max-width: 500px;
+  max-width: 850px;
 
   background: white;
   border-radius: 28px;
@@ -495,24 +733,57 @@ footer a:hover { color: white; }
 
   cursor: pointer;
   font-size: 1rem;
+
+  transition: 0.3s ease;
+}
+
+.close-popup:hover {
+  background: #ff4f93;
+  color: white;
+}
+
+/* ─────────────────────────────
+   FORM GRID LAYOUT
+─────────────────────────────*/
+.cake-form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+/* col-lg-3 */
+.col-lg-3 {
+  grid-column: span 1;
+}
+
+/* col-lg-6 */
+.col-lg-6 {
+  grid-column: span 2;
+}
+
+/* col-lg-12 */
+.col-lg-12 {
+  grid-column: span 4;
 }
 
 /* ─────────────────────────────
    INPUTS
 ─────────────────────────────*/
 .input-group {
-  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
 }
 
 .input-group label {
-  display: block;
   margin-bottom: 8px;
   font-weight: 600;
   color: #444;
+  font-size: 0.95rem;
 }
 
 .input-group input,
-.input-group textarea {
+.input-group textarea,
+.input-group select {
   width: 100%;
   padding: 14px 16px;
 
@@ -523,10 +794,17 @@ footer a:hover { color: white; }
   outline: none;
 
   transition: 0.3s ease;
+  background: #fff;
+}
+
+.input-group textarea {
+  resize: vertical;
+  min-height: 110px;
 }
 
 .input-group input:focus,
-.input-group textarea:focus {
+.input-group textarea:focus,
+.input-group select:focus {
   border-color: #ff69b4;
   box-shadow: 0 0 0 4px rgba(255,105,180,0.12);
 }
@@ -535,6 +813,13 @@ footer a:hover { color: white; }
   display: block;
   margin-top: 8px;
   color: #777;
+  font-size: 0.82rem;
+}
+
+/* FILE INPUT */
+.input-group input[type="file"] {
+  padding: 10px;
+  cursor: pointer;
 }
 
 /* ─────────────────────────────
@@ -563,12 +848,47 @@ footer a:hover { color: white; }
 }
 
 /* ─────────────────────────────
-   MOBILE
+   TABLET VIEW
+─────────────────────────────*/
+@media (max-width: 992px) {
+
+  .cake-form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* col-md-2 */
+  .col-md-2 {
+    grid-column: span 1;
+  }
+
+  .col-lg-6,
+  .col-lg-12 {
+    grid-column: span 2;
+  }
+}
+
+/* ─────────────────────────────
+   MOBILE VIEW
 ─────────────────────────────*/
 @media (max-width: 600px) {
 
   .cake-popup-box {
     padding: 24px 18px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .cake-form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* col-sm-2 */
+  .col-sm-2,
+  .col-lg-3,
+  .col-lg-6,
+  .col-lg-12 {
+    grid-column: span 1;
   }
 
   .floating-btn {
@@ -584,6 +904,9 @@ footer a:hover { color: white; }
     height: 42px;
   }
 
+  .submit-cake-btn {
+    font-size: 0.95rem;
+  }
 }
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
